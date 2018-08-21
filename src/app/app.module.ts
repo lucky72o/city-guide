@@ -9,6 +9,8 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {PublicTourPage} from "../pages/public-tour/public-tour";
 import {PrivateTourPage} from "../pages/private-tour/private-tour";
 import {MyAccountPage} from "../pages/my-account/my-account";
+import {SigninPage} from "../pages/signin/signin";
+import {SignupPage} from "../pages/signup/signup";
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {MyAccountPage} from "../pages/my-account/my-account";
     TabsPage,
     PublicTourPage,
     PrivateTourPage,
-    MyAccountPage
+    MyAccountPage,
+    SigninPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,9 @@ import {MyAccountPage} from "../pages/my-account/my-account";
     TabsPage,
     PublicTourPage,
     PrivateTourPage,
-    MyAccountPage
+    MyAccountPage,
+    SigninPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
