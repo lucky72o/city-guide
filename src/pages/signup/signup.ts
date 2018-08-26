@@ -1,12 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SignupPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {Component} from '@angular/core';
+import {AlertController, IonicPage, LoadingController} from 'ionic-angular';
+import {NgForm} from "@angular/forms";
+import {AuthService} from "../../services/auth";
 
 @IonicPage()
 @Component({
@@ -15,11 +10,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SignupPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private authService: AuthService,
+              private loadCtrl: LoadingController,
+              private alertCtrl: AlertController) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
+  onSignup(form: NgForm) {
+    const loading = this.loadCtrl.create({
+      content: "Registering.."
+    });
+
+    loading.present();
+    this.authService.signup(form.value.email, form.value.password)
+      .then(data => {
+        loading.dismiss();
+      })
+      .catch(error => {
+        loading.dismiss();
+        const alert = this.alertCtrl.create({
+          title: "Registration error",
+          message: error.message,
+          buttons: ['OK']
+        });
+        alert.present();
+      });
   }
 
 }
