@@ -12,6 +12,7 @@ import {MyAccountPage} from "../pages/my-account/my-account";
 import {SigninPage} from "../pages/signin/signin";
 import {SignupPage} from "../pages/signup/signup";
 import {AuthService} from "../services/auth";
+import {TourService} from "../services/tour";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {AuthService} from "../services/auth";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService
+    AuthService,
+    TourService
   ]
 })
 export class AppModule {}

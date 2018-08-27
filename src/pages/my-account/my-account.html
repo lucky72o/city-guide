@@ -16,4 +16,64 @@
 
 <ion-content padding>
 
+  <!--<ion-toolbar>-->
+    <ion-segment [(ngModel)]="tours">
+      <ion-segment-button value="upcoming">
+        Upcoming
+      </ion-segment-button>
+      <ion-segment-button value="history">
+        History
+      </ion-segment-button>
+      <ion-segment-button value="mytours">
+        My Tours
+      </ion-segment-button>
+    </ion-segment>
+  <!--</ion-toolbar>-->
+
+  <ion-content>
+    <div [ngSwitch]="tours">
+      <ion-list *ngSwitchCase="'upcoming'">
+        <button
+          ion-item
+          *ngFor="let tour of upcomingTours" text-wrap>
+          <ion-thumbnail item-start>
+            <img src="{{tour.imageUrl}}">
+          </ion-thumbnail>
+          <h3>{{tour.name}}</h3>
+          <ion-note>
+            <p padding-top>{{tour.startTime}}</p>
+          </ion-note>
+        </button>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'history'">
+        <button
+          ion-item
+          *ngFor="let tour of historyTours" text-wrap>
+          <ion-thumbnail item-start>
+            <img src="{{tour.imageUrl}}">
+          </ion-thumbnail>
+          <h3>{{tour.name}}</h3>
+          <ion-note>
+            <p padding-top>{{tour.startTime}}</p>
+          </ion-note>
+        </button>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'mytours'">
+        <button
+          ion-item
+          *ngFor="let tour of myTours" text-wrap>
+          <ion-thumbnail item-start>
+            <img src="{{tour.imageUrl}}">
+          </ion-thumbnail>
+          <h3>{{tour.name}}</h3>
+          <ion-note>
+            <p padding-top>{{tour.startTime}}</p>
+          </ion-note>
+        </button>
+      </ion-list>
+    </div>
+  </ion-content>
+
 </ion-content>
