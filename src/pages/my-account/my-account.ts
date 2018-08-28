@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
 import {TourService} from "../../services/tour";
 import {TourShortModel} from "../../model/tour-short-model";
+import {TourDetailsPage} from "../tour-details/tour-details";
 
 
 @IonicPage()
@@ -21,9 +22,13 @@ export class MyAccountPage implements OnInit {
   }
 
   ngOnInit(): void {
-    this.upcomingTours = this.tourService.getUpcomingTours();
-    this.historyTours = this.tourService.getHistoryTours();
-    this.myTours = this.tourService.getMyTours();
+    this.upcomingTours = this.tourService.getUpcomingToursShort();
+    this.historyTours = this.tourService.getHistoryToursShort();
+    this.myTours = this.tourService.getMyToursShort();
+  }
+
+  onLoadTourDetails(id: string) {
+    this.navCtrl.push(TourDetailsPage, {"tourId": id})
   }
 
 

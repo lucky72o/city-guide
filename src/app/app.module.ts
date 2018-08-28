@@ -13,6 +13,7 @@ import {SigninPage} from "../pages/signin/signin";
 import {SignupPage} from "../pages/signup/signup";
 import {AuthService} from "../services/auth";
 import {TourService} from "../services/tour";
+import {TourDetailsPage} from "../pages/tour-details/tour-details";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {TourService} from "../services/tour";
     PrivateTourPage,
     MyAccountPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    TourDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import {TourService} from "../services/tour";
     PrivateTourPage,
     MyAccountPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    TourDetailsPage
   ],
   providers: [
     StatusBar,

@@ -35,7 +35,9 @@
       <ion-list *ngSwitchCase="'upcoming'">
         <button
           ion-item
-          *ngFor="let tour of upcomingTours" text-wrap>
+          *ngFor="let tour of upcomingTours"
+          (click)="onLoadTourDetails(tour.id)"
+           text-wrap>
           <ion-thumbnail item-start>
             <img src="{{tour.imageUrl}}">
           </ion-thumbnail>
@@ -49,7 +51,9 @@
       <ion-list *ngSwitchCase="'history'">
         <button
           ion-item
-          *ngFor="let tour of historyTours" text-wrap>
+          *ngFor="let tour of historyTours"
+          (click)="onLoadTourDetails(tour.id)"
+          text-wrap>
           <ion-thumbnail item-start>
             <img src="{{tour.imageUrl}}">
           </ion-thumbnail>
@@ -63,7 +67,9 @@
       <ion-list *ngSwitchCase="'mytours'">
         <button
           ion-item
-          *ngFor="let tour of myTours" text-wrap>
+          *ngFor="let tour of myTours"
+          (click)="onLoadTourDetails(tour.id)"
+          text-wrap>
           <ion-thumbnail item-start>
             <img src="{{tour.imageUrl}}">
           </ion-thumbnail>
